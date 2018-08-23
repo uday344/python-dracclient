@@ -62,7 +62,7 @@ class ClientRAIDManagementTestCase(base.BaseTest):
                        autospec=True)
     def test_list_virtual_disks(self, mock_requests,
                                 mock_wait_until_idrac_is_ready):
-        expected_virtual_disk = raid.VirtualDisk(
+        expected_virtual_disk = raid.VirtualDiskTuple(
             id='Disk.Virtual.0:RAID.Integrated.1-1',
             name='disk 0',
             description='Virtual Disk 0 on Integrated RAID Controller 1',
@@ -91,7 +91,7 @@ class ClientRAIDManagementTestCase(base.BaseTest):
                        autospec=True)
     def test_list_physical_disks(self, mock_requests,
                                  mock_wait_until_idrac_is_ready):
-        expected_physical_disk = raid.PhysicalDisk(
+        expected_physical_disk = raid.PhysicalDiskTuple(
             id='Disk.Bay.1:Enclosure.Internal.0-1:RAID.Integrated.1-1',
             description=('Disk 1 in Backplane 1 of '
                          'Integrated RAID Controller 1'),
@@ -121,7 +121,7 @@ class ClientRAIDManagementTestCase(base.BaseTest):
                        autospec=True)
     def test_list_physical_disks_direct(self, mock_requests,
                                         mock_wait_until_idrac_is_ready):
-        expected_physical_disk = raid.PhysicalDisk(
+        expected_physical_disk = raid.PhysicalDiskTuple(
             id='Disk.Direct.2:RAID.Integrated.1-1',
             description=('Disk 2 on '
                          'Integrated RAID Controller 1'),
@@ -151,7 +151,7 @@ class ClientRAIDManagementTestCase(base.BaseTest):
                        autospec=True)
     def test_list_physical_disks_nvme(self, mock_requests,
                                       mock_wait_until_idrac_is_ready):
-        expected_physical_disk = raid.PhysicalDisk(
+        expected_physical_disk = raid.PhysicalDiskTuple(
             id='Disk.Bay.20:Enclosure.Internal.0-1:PCIeExtender.Slot.1',
             description='PCIe SSD in Slot 20 in Bay 1',
             controller='PCIeExtender.Slot.1',
